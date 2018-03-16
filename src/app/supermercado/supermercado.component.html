@@ -1,26 +1,86 @@
 <div class="header container-fluid">
-  <h1>SUPERMERCADO</h1>
-  <input type="text" [(ngModel)]="searchText" placeholder="Buscar por nombre">
-  <button>
-    <i class="fa fa-search" aria-hidden="true"></i>
-  </button>
-  <div class="carrito">
-    <ul>
-      <li class="dropdown">
+  <ul class="nav-list">
+    <li>
+      <div class="titulo">
+        <span>SUPERMERCADO</span>
+      </div>
+    </li>
+    <li>
+      <div class="buscador">
+        <input type="text" [(ngModel)]="searchText" placeholder="Buscar por nombre">
+        <button>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </div>
+    </li>
+    <li class="dropdown">
+      <div class="carrito">
         <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           <span class="badge"> {{productosTotales}}</span>
           <i class="fa fa-shopping-basket" aria-hidden="true"> {{precioTotal | number:'.2-2'}}€</i>
         </div>
-        <!-- <ul class="dropdown-menu dropdown-menu-right" role="menu">
-          <li *ngFor="let producto of carrito">
-            <div class="img col-xs-3" >
-                <img src={{producto.img}} alt={{producto.nombre}}>
-            </div>
-          </li>
-        </ul> -->
-      </li>
-    </ul>
-  </div>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <!-- ESTE FORM HACE STOP PROPAGATION PARA EL DROPDOWN QUE SI NO HARIA TOOGLE AL CLICKAR CUALQUIER PRODUCTO -->
+          <form>
+            <li *ngFor="let producto of carrito">
+              <div class="producto-carrito row">
+                <div class="img col-xs-2">
+                  <img src={{producto.img}} alt={{producto.nombre}}>
+                </div>
+                <div class="datos col-xs-5">
+                  <p class="precio">{{producto.precio | number:'.2-2'}}€</p>
+                  <p>{{producto.nombre}}</p>
+                </div>
+                <div class="botones col-xs-3">
+                  <button type="button" class="btn btn-default izq" (click)="restarCarrito(producto); calcularTotales()"> - </button>
+                  <input class="btn-default" [value]="producto.cantidad" disabled>
+                  <button type="button" class="btn btn-default dcha" (click)="sumar(producto); calcularTotales()"> + </button>
+                </div>
+                <div class="eliminar col-xs-2" (click)="eliminarProducto(producto)">
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </div>
+              </div>
+            </li>
+            <!-- *ngFor -->
+            <li>
+              <div class="totales">
+                <div class="cuenta row">
+                  
+                    <div class="col-xs-3 col-xs-offset-7">
+                      <p>Subtotal</p>
+                      <p>Descuento</p>
+                      <p>Total</p>
+                    </div>
+                    <div class="col-xs-2">
+                      <p class="right">{{precioTotal | number:'.2-2'}}€</p>
+                      <p class="right">0€</p>
+                      <p class="right">{{precioTotal | number:'.2-2'}}€</p>
+                    </div>
+                  
+
+
+                </div>
+                <div class="row tramitar">
+                  <div class="col-xs-5">
+                    <button class="btn btn-block vaciar" (click)="vaciarCesta()">
+                      <span>
+                        <i class="fa fa-trash-o" aria-hidden="true"></i> VACIAR CESTA</span>
+                    </button>
+                  </div>
+                  <div class="col-xs-7">
+                    <button class="btn btn-block btn-success">
+                      <span>VER / TRAMITAR COMPRA</span>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+          </form>
+        </ul>
+      </div>
+    </li>
+  </ul>
 </div>
 
 <div class="container">

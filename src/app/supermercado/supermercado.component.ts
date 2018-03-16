@@ -16,7 +16,7 @@ export class SupermercadoComponent implements OnInit {
   carrito: Producto[];
   productosTotales: number;
   precioTotal: number;
-  
+
 
   constructor(private productosService: ProductosService) {
     console.log('SupermercadoComponent constructor');
@@ -27,7 +27,6 @@ export class SupermercadoComponent implements OnInit {
     this.productosTotales = 0;
     this.precioTotal = 0;
 
-    
   }
 
   ngOnInit() {
@@ -52,8 +51,8 @@ export class SupermercadoComponent implements OnInit {
   }
 
   //Metodo para añadir cantidad al producto existente en el carrito o nuevo producto si no existe
-  addProducto(producto) { 
-    
+  addProducto(producto) {
+
     console.log('prod %o', producto.cantidad);
 
     let added: boolean = false;
@@ -67,40 +66,60 @@ export class SupermercadoComponent implements OnInit {
       this.nuevoProducto(producto);
     }
 
-    this.calcularTotales(this.carrito);
-   
+    this.calcularTotales();
+
     producto.cantidad = 1;
     console.log('carrito %o', this.carrito);
   }
 
   //Metodo para añadir el producto al carrito pq al hacer push(producto) lo añade por referencia
-  nuevoProducto(producto){
+  //El precio se calcula sobre la oferta al pasarlo al carrito
+  nuevoProducto(producto) {
     let p = new Producto();
     p.id = producto.id;
     p.cantidad = producto.cantidad;
     p.img = producto.img;
     p.nombre = producto.nombre;
     p.oferta = producto.oferta;
-    p.precio = producto.precio;
+    if (p.oferta > 0) {
+      p.precio = parseFloat((producto.precio - (producto.precio * (p.oferta / 100))).toFixed(2));
+    } else {
+      p.precio = producto.precio;
+    }
     p.precioUnitario = producto.precioUnitario;
 
     this.carrito.push(p);
   }
 
   //Metodo para calcular el numero de productos y el precio de estos en el carrito
-  calcularTotales(carrito){
+  calcularTotales() {
     this.productosTotales = 0;
     this.precioTotal = 0;
     let precioOferta = 0;
-    this.carrito.forEach(p=>{
+    this.carrito.forEach(p => {
       this.productosTotales += p.cantidad;
-
-      if(p.oferta>0){
-        precioOferta = parseFloat((p.precio - (p.precio*(p.oferta/100))).toFixed(2));
-      } else {
-        precioOferta = p.precio;
-      }
-      this.precioTotal += parseFloat((precioOferta*p.cantidad).toFixed(2));
+      this.precioTotal += parseFloat((p.precio * p.cantidad).toFixed(2));
     });
+  }
+
+  //metodo para eliminar productos del carrito
+  restarCarrito(producto) {
+    producto.cantidad--;
+    if (producto.cantidad <= 0) {
+      this.eliminarProducto(producto);
+    }
+  }
+
+  //metodo para quitar productos del carrito
+  eliminarProducto(producto) {
+    this.carrito = this.carrito.filter(p => {
+      return (p.id != producto.id);
+    });
+    this.calcularTotales();
+  }
+
+  //metodo para vaciar el carrito
+  vaciarCesta() {
+    this.carrito = [];
   }
 }

@@ -6,56 +6,162 @@
     top: 0;
     width: 100%;
     z-index: 99;
-    
 
-    h1{
-        display: inline-block;
-        font-size: 1.4em;
-        margin-left: 30%;
-        margin-right: 2%;
-    }
+    .nav-list{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        margin-bottom: 0;
 
-    input{
-        display: inline-block;
-    }
-
-    .carrito{
-        position: absolute;
-        right: 0;
-        padding: 10px;
-        display: inline-block;
-        font-size: 1.5em;
-        height: 100%;
-        width: 20%;
-
-        .badge{
-            background-color: green;
-        }
-
-        &:hover{
-            background-color: #88CC88;
-            color: white;
-        }
-
-        ul{
-            position: relative;
-            list-style: none;
-            
-
-            li{
-                position: absolute;
+        li{
+            width: 33%;          
                 
-                height: 80px;
-                width: 500px;
+            .titulo{
                 
-
-                .img{
-                    max-height: 80%;
-                    }
-                
+                    display: block;
+                    font-size: 1.4em;
+                    text-align: right;
+                    width: 100%;
+                    padding: 10px; 
             }
+
+            .buscador{
+                padding: 10px;
+                input{
+                    width: 60%;
+                }
+            }
+
+            .carrito{
+                padding: 10px;                
+                font-size: 1.5em;
+                height: 100%;
+                width: 100%;
+                
+                .badge{
+                    background-color: green;
+                }
+
+                &:hover{
+                    background-color: #88CC88;
+                    color: white;
+                }
+
+                ul{
+                    list-style: none;                    
+                    padding: 0;
+                    margin: 0;
+                    right: 0;
+                    border: none;
+                    
+                    li{
+                        margin: 0;
+                        padding: 0;
+                        max-width: 98%;
+                        
+
+                        .producto-carrito{
+                            height: 100px;
+                            width: 600px;
+                            padding: 0;
+                            margin: 0;
+                            border-bottom: 1px solid #7F7F7F;
+
+                            .img{
+                                height: 100%;
+                                img{
+                                    margin: 10%;
+                                    max-height: 80%;
+                                    width: auto;
+                                    
+                                }
+                            }
+
+                            .datos{
+                                padding: 10px;
+                                color: black;
+                                font-size: 1em;
+
+                                p{
+                                    margin: 0;
+                                }
+
+                                .precio{
+                                    font-size: 1.2em;
+                                    font-weight: bold;
+                                }
+                            }
+                            
+                            .botones{
+
+                                display: flex;
+                                justify-content: center;
+                                padding-top: 25px;
+                                text-align: center;
+                    
+                                button{
+                                    max-width: 20%;
+                                    height: auto;
+                                    margin: 0;
+                                }
+                                
+                                input{
+                                    max-width: 25%;
+                                    text-align: center;
+                                }
+                            }
+
+                            .eliminar{
+                                height: 100px;
+                                background-color: rgb(182, 182, 182);
+                                color: grey;
+                                font-size: 2em;
+                                padding-top: 25px;
+                                text-align: center;
+                                border-left: 1px solid #7F7F7F;
+                                border-bottom: 1px solid #7F7F7F;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .cuenta{
+                            width: 600px;
+                            color: black;
+
+                            p{
+                                margin: 5px;                                
+                            }
+
+                            .col-xs-2{
+                                p{
+                                    text-align: right;
+                                }
+                            }
+                        }
+
+                        .tramitar{
+                            margin: 0;
+                            width: 600px;
+
+                            div{
+                                padding: 0;
+                            }
+
+                            .vaciar{
+                                color: green;
+                            }
+                        }
+                        
+                    }
+                    
+                }
+            }
+            
         }
     }
+
 }
 
 
@@ -63,7 +169,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 0;
 
     .producto{
@@ -121,7 +227,8 @@
         }
         
         .nombre{
-            height: 50px;
+            padding: 10px;
+            height: 60px;
             overflow: hidden;
             color: #7F7F7F;
             font-size: 1em;
