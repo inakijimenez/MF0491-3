@@ -11,19 +11,23 @@ export class SupermercadoComponent implements OnInit {
 
   productos: Producto[];
   producto: Producto;
+  precioOferta: number;
 
   constructor(private productosService: ProductosService) {
     console.log('SupermercadoComponent constructor');
 
     this.productos = [];
     this.producto = new Producto();
+    
   }
 
   ngOnInit() {
     console.log('SupermercadoComponent ngOnInit');
 
     this.productos = this.productosService.getAll();
-    console.log('Productos %o', this.productos);
+    //console.log('Productos %o', this.productos);
+
+    
   }
 
 }

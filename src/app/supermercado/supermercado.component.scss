@@ -1,0 +1,50 @@
+
+
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+
+    .producto{
+
+        position: relative;
+        max-width: 180px;
+        margin: 2%;
+        border: 1px solid #F0F0F0;
+
+        .oferta{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5em;
+            padding: 3px 10px;
+            border-radius: 15px;
+        }
+        
+        img{            
+            margin: 5%;
+            max-width: 90%;
+        }
+
+        .precios{
+            display: flex;
+            justify-content: space-around;
+            color: #7F7F7F;
+            
+            .precio{
+
+            }
+
+            .precioTachado{
+
+            }
+
+        }
+    }
+}

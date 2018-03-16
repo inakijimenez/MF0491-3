@@ -19,7 +19,7 @@ export const MOCKS_PRODUCTOS = `[{
     "nombre": "Queso fundido en porciones 250g",
     "precio": 0.83,
     "precioUnitario": "3,32 €/kg",
-    "img": "https://www.carrefour.es/supermercado/queso-fundido-en-porciones-producto-blanco/R-538408191/p",
+    "img": "https://static.carrefour.es/hd_560x_/supermercado/bcc_static/catalogImages/product/203602/203602.png",
     "oferta": 0    
 },
 {
@@ -27,7 +27,7 @@ export const MOCKS_PRODUCTOS = `[{
     "nombre": "Bimbo-Silueta Pan de molde integral sin corteza",
     "precio": 1.96,
     "precioUnitario": "4,36 €/kg",
-    "img": "https://www.carrefour.es/supermercado/pan-de-molde-integral-sin-corteza-bimbo-silueta/R-521007166/p",
+    "img": "https://static.carrefour.es/hd_560x_/supermercado/bcc_static/catalogImages/product/446473/446473.jpg",
     "oferta": 0    
 },
 {
@@ -51,7 +51,7 @@ export const MOCKS_PRODUCTOS = `[{
     "nombre": "Berenjena de campo",
     "precio": 1.00,
     "precioUnitario": "1,00 €/kg",
-    "img": "https://www.carrefour.es/supermercado/berenjena-de-campo-carrefour/R-636701857/p",
+    "img": "https://static.carrefour.es/hd_560x_/supermercado/bcc_static/catalogImages/product/811365/811365.png",
     "oferta": 50    
 },
 {
@@ -75,7 +75,7 @@ export const MOCKS_PRODUCTOS = `[{
     "nombre": "Cinzano Vermouth rojo",
     "precio": 5.55,
     "precioUnitario": "5,55 €/l",
-    "img": "https://www.carrefour.es/supermercado/vermouth-rojo-cinzano/R-prod330233/p",
+    "img": "https://static.carrefour.es/hd_560x_/supermercado/bcc_static/catalogImages/product/000276/000276.jpg",
     "oferta": 0    
 }
 ]`;
