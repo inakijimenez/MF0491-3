@@ -1,0 +1,12 @@
+<p>
+  supermercado works!
+</p>
+
+<div class="producto">
+  <span class="oferta" *ngIf="">{{producto.oferta}}</span>
+  <img src={{producto.img}} alt={{producto.nombre}}>
+  <div class="precios">
+    <span [ngClass]="(producto.oferta>0)? precioTachado : precio" >{{producto.precio}}</span>
+    <span class="precioOferta">{{producto.precio}}</span>
+  </div>
+</div>
