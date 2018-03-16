@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Servicios
 import { ProductosService } from './providers/productos.service';
@@ -7,6 +8,7 @@ import { ProductosService } from './providers/productos.service';
 //Componentes
 import { AppComponent } from './app.component';
 import { SupermercadoComponent } from './supermercado/supermercado.component';
+import { ProductoPipe } from './pipes/producto.pipe';
 
 
 
@@ -14,10 +16,13 @@ import { SupermercadoComponent } from './supermercado/supermercado.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SupermercadoComponent
+    SupermercadoComponent,
+    ProductoPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductosService],
   bootstrap: [AppComponent]

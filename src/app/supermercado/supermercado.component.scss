@@ -1,4 +1,45 @@
+.header{
+    padding: 0;
+    background-color: black;
+    color: #7F7F7F;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    
 
+    h1{
+        display: inline-block;
+        font-size: 1.4em;
+        margin-left: 30%;
+        margin-right: 2%;
+    }
+
+    input{
+        display: inline-block;
+    }
+
+    .carrito{
+        display: inline-block;
+        font-size: 1.5em;
+        height: 100%;
+
+        &:hover{
+            background-color: #88CC88;
+            color: white;
+        }
+
+        ul{
+            list-style: none;
+
+            a{
+                text-decoration: none;
+                color: #7F7F7F;
+                
+            }
+        }
+    }
+}
 
 
 .container{
@@ -11,7 +52,7 @@
     .producto{
 
         position: relative;
-        max-width: 180px;
+        max-width: 200px;
         margin: 2%;
         border: 1px solid #F0F0F0;
 
@@ -33,18 +74,58 @@
         }
 
         .precios{
-            display: flex;
-            justify-content: space-around;
+            
             color: #7F7F7F;
+            padding-left: 5%;
             
             .precio{
-
+                font-size: 1.4em;
+                margin-right: 2em;
+                
             }
 
             .precioTachado{
-
+                font-size: 1.1em;
+                text-decoration: line-through;
+                margin-right: 2em;
             }
 
+            .precioOferta{
+                font-size: 1.4em;
+                color: red;
+            }
+        }
+
+        .precioUnitario{
+            color: #ABA4A7;
+            text-align: right;
+            font-size: 1em;
+            padding-right: 5%;
+        }
+        
+        .nombre{
+            height: 50px;
+            overflow: hidden;
+            color: #7F7F7F;
+            font-size: 1em;
+        }
+
+        .botonera{
+
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+
+            button{
+                max-width: 20%;
+                height: auto;
+                margin: 0;
+            }
+            
+            input{
+                max-width: 25%;
+                text-align: center;
+            }
         }
     }
 }

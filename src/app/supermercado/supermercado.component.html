@@ -1,18 +1,37 @@
 <div class="header container-fluid">
-  <h1>Supermercado</h1>
-  <input type="text" placeholder="Buscar por nombre">
-  <div class="carrito">Carrito</div>
+  <h1>SUPERMERCADO</h1>
+  <input type="text" [(ngModel)]="searchText" placeholder="Buscar por nombre">
+  <button>
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </button>
+  <div class="carrito">
+    <ul>
+      <li class="dropdown">
+        <span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <span class="badge"> {{productosTotales}}</span>
+          <i class="fa fa-shopping-basket" aria-hidden="true"> {{precioTotal | number:'.2-2'}}€</i>
+        </span>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#">Action</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div class="container">
 
-  <div *ngFor="let producto of productos">
+  <div *ngFor="let producto of productos | producto : searchText">
     <div class="producto">
       <span class="oferta" *ngIf="producto.oferta>0">{{producto.oferta}}%</span>
-      <img src={{producto.img}} alt={{producto.nombre}}>
+      <div class="img">
+        <img src={{producto.img}} alt={{producto.nombre}}>
+      </div>
       <div class="precios">
-        <span [ngClass]="(producto.oferta>0)? precioTachado : precio">{{producto.precio}}€</span>
-        <span class="precioOferta">{{ producto.precio - (producto.precio*(producto.oferta/100)) | number:'.2-2'}}€</span>
+        <span [ngClass]="producto.oferta>0 ? 'precioTachado' : 'precio'">{{producto.precio}}€</span>
+        <span *ngIf="producto.oferta>0" class="precioOferta">{{ producto.precio - (producto.precio*(producto.oferta/100)) | number:'.2-2'}}€</span>
       </div>
       <div class="precioUnitario">
         <span>{{producto.precioUnitario}}</span>
@@ -20,13 +39,13 @@
       <div class="nombre">
         <span>{{producto.nombre}}</span>
       </div>
-      <div>
-        <button type="button" class="btn btn-default glyphicon glyphicon-minus"></button>
-        <input type="number" disabled value="1">
-        <button type="button" class="btn btn-default glyphicon glyphicon-plus"></button>
+      <div class="botonera">
+        <button type="button" class="btn btn-default izq" (click)="restar(producto)"> - </button>
+        <input class="btn-default" [value]="producto.cantidad" disabled>
+        <button type="button" class="btn btn-default dcha" (click)="sumar(producto)"> + </button>
       </div>
 
-      <button type="button" class="btn btn-success btn-block">AÑADIR AL CARRITO</button>
+      <button type="button" class="btn btn-success btn-block" (click)="addProducto(producto)">AÑADIR AL CARRITO</button>
     </div>
     <!-- producto -->
   </div>
