@@ -26,6 +26,8 @@ export class SupermercadoComponent implements OnInit {
     this.carrito = [];
     this.productosTotales = 0;
     this.precioTotal = 0;
+
+    
   }
 
   ngOnInit() {
@@ -67,6 +69,7 @@ export class SupermercadoComponent implements OnInit {
 
     this.calcularTotales(this.carrito);
    
+    producto.cantidad = 1;
     console.log('carrito %o', this.carrito);
   }
 

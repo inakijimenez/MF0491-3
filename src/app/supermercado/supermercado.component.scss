@@ -20,9 +20,17 @@
     }
 
     .carrito{
+        position: absolute;
+        right: 0;
+        padding: 10px;
         display: inline-block;
         font-size: 1.5em;
         height: 100%;
+        width: 20%;
+
+        .badge{
+            background-color: green;
+        }
 
         &:hover{
             background-color: #88CC88;
@@ -30,11 +38,20 @@
         }
 
         ul{
+            position: relative;
             list-style: none;
+            
 
-            a{
-                text-decoration: none;
-                color: #7F7F7F;
+            li{
+                position: absolute;
+                
+                height: 80px;
+                width: 500px;
+                
+
+                .img{
+                    max-height: 80%;
+                    }
                 
             }
         }

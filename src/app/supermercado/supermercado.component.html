@@ -7,15 +7,17 @@
   <div class="carrito">
     <ul>
       <li class="dropdown">
-        <span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           <span class="badge"> {{productosTotales}}</span>
           <i class="fa fa-shopping-basket" aria-hidden="true"> {{precioTotal | number:'.2-2'}}€</i>
-        </span>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="#">Action</a>
+        </div>
+        <!-- <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li *ngFor="let producto of carrito">
+            <div class="img col-xs-3" >
+                <img src={{producto.img}} alt={{producto.nombre}}>
+            </div>
           </li>
-        </ul>
+        </ul> -->
       </li>
     </ul>
   </div>
